@@ -7,14 +7,14 @@
 <body>
 <h1>Painter entry Swarupa Jinne</h1>
 
-<h2>Getting input</h2>
+
 
 <form>
-    <label for="secret-painter-name">The hidden painter name:</label>
-    <input type="password" id="secret-painter-name" name="secret-painter-name" value="Monet">
+    <label for="secretpaintername">The hidden painter name:</label>
+    <input type="password" id="secretpaintername" name="secretpaintername" value="Monet">
     <br>
-    <label for="guess-painter-name">Guess the painter:</label>
-    <input type="text" id="guess-painter-name" name="guess-painter-name">
+    <label for="guesspaintername">Guess the painter:</label>
+    <input type="text" id="guesspaintername" name="guesspaintername">
     <br>
     <button type="button" onclick="checkPainter()">Check the guess</button>
   </form>
@@ -26,10 +26,10 @@
     var oops = 0;
 
     function checkPainter() {
-      var secretPainterName = document.getElementById("secret-painter-name").value;
-      var guessedPainterName = document.getElementById("guess-painter-name").value;
+      var secret_PainterName = document.getElementById("secretpaintername").value;
+      var guessed_PainterName = document.getElementById("guesspaintername").value;
       
-      if (guessedPainterName.toLowerCase() === secretPainterName.toLowerCase()) {
+      if (guessed_PainterName.toLowerCase() === secret_PainterName.toLowerCase()) {
         good++;
         alert("You got it right!");
       } else {
