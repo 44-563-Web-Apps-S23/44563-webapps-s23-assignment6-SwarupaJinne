@@ -20,6 +20,12 @@
   </form>
   
   <p>Good: <span id="good-count">0</span>, Oops: <span id="oops-count">0</span></p>
+  
+  <br>
+  <br>
+  <div class="container">
+    <img src="Iris.jpg" id="image" onclick="selectImage()" alt="Iris" style="width: 100px;height: 100px;">
+</div>
 
   <script>
     var good = 0;
@@ -40,6 +46,25 @@
       document.getElementById("good-count").innerHTML = good;
       document.getElementById("oops-count").innerHTML = oops;
     }
+    
+    useImage = 1
+        
+        function selectImage() 
+        {
+            switch (useImage) {
+                case 1: useImage = useImage + 1
+                    image.src = "Iris.jpg";
+                    break;
+                case 2: useImage = useImage + 1
+                    image.src = "Nandina.jpg";
+                    break;
+                case 3: useImage = useImage + 1
+                    image.src = "Nasturtium.jpg";
+                    break;
+            }
+        }
+
+    
   </script>
 </body>
 </html> 
