@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Conversions Page</title>
+ </head>
+<body>
+<h1>Swarupa Jinne shows currency conversions.</h1>
+
+
+<form>
+    <label for="amount">Enter base amount:</label>
+	<input type="number" id="amount" value="50">
+	<br>
+	<label for="conversion">Enter the conversion rate:</label>
+	<input type="number" id="conversion" value="35">
+	<br>
+    <input type="button" onclick="convert()" value="Show conversions">
+    <br>
+</form>
+
+
+<p id="result1"> Results</p>
+
+<form>
+    <input type="radio" id="average" name="calculations" onclick="chooseOp()" value="mean"  checked >
+    <label for="average">average</label></br>
+  
+    <input type="radio" id="max" name="calculations" onclick="chooseOp()" value="maximum">
+    <label for="min">max</label></br>
+  
+    <input type="radio" id="min" name="calculations" onclick="chooseOp()" value="minimum">
+    <label for="min">min</label></br>
+  </form>
+  <p id="result2"> Result will display</p>
+
+<script> 
+
+function convert() {
+  const baseAmount = document.getElementById("amount").value;
+  const conversionRate = document.getElementById("conversion").value;
+  let toShow = "";
+  
+  for (let i = 0; i < 5; i++) {
+    const currentValue = baseAmount * Math.pow(2, i);
+    const convertedValue = currentValue * conversionRate;
+    toShow += `${currentValue} is ${convertedValue}; `;
+  }
+  
+  const resultsElement = document.getElementById("result1");
+  resultsElement.innerHTML = `Conversions are: ${toShow}(base was ${baseAmount}, conversion is ${conversionRate})`;
+
+
+}
+
+function chooseOp(){
+        let results = 0;
+                let base = document.getElementById("amount").value;
+                let conversion = document.getElementById("conversion").value;
+                let average = document.getElementById("average").checked;
+                let max = document.getElementById("max").checked;
+                let min = document.getElementById("min").checked;
+                if (average) {
+                    results = (parseInt(base)+parseInt(conversion))/2;
+                }
+                else if (max) {
+                    results = Math.max(base,conversion);
+                }
+                else if (min) {
+                    results = Math.min(base,conversion);
+                }
+                document.getElementById("result2").innerHTML = results
+    }
+</script>
+
+</body>
+</html> 
