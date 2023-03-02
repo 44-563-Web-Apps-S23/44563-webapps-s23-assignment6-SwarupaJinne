@@ -20,7 +20,7 @@
   </form>
   
   <p>Good: <span id="good-count">0</span>, Oops: <span id="oops-count">0</span></p>
-  
+
   <br>
   <br>
   <div class="container">
@@ -30,6 +30,10 @@
   <script>
     var good = 0;
     var oops = 0;
+    var guessesLeft = 10;
+    function giveAlert() {
+            alert("Sorry, ran out of guesses.");
+        }
 
     function checkPainter() {
       var secret_PainterName = document.getElementById("secretpaintername").value;
@@ -38,7 +42,12 @@
       if (guessed_PainterName.toLowerCase() === secret_PainterName.toLowerCase()) {
         good++;
         alert("You got it right!");
-      } else {
+      } 
+      else if (oops >= guessesLeft) {
+                document.getElementById("button").onclick = giveAlert();             
+                
+            }
+      else {
         oops++;
         alert("Sorry, wrong answer.");
       }
@@ -46,6 +55,8 @@
       document.getElementById("good-count").innerHTML = good;
       document.getElementById("oops-count").innerHTML = oops;
     }
+
+
     
     useImage = 1
         
@@ -63,6 +74,8 @@
                     break;
             }
         }
+
+        
 
     
   </script>
